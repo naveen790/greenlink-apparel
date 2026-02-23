@@ -4,41 +4,56 @@ import { CLIENT_LOGOS } from '../data';
 
 export default function Logos() {
   return (
-    <section className="bg-brand-cream py-16 md:py-24 px-6 border-t border-brand-gold/10">
+    <section className="bg-brand-cream py-12 md:py-24 px-6">
       <div className="max-w-6xl mx-auto">
         
-        <div className="flex items-center gap-4 md:gap-8 mb-12 md:mb-20">
-          <div className="h-[1px] flex-1 bg-brand-gold/30"></div>
-          <p className="text-[9px] md:text-[11px] uppercase tracking-[0.5em] md:tracking-[0.7em] text-brand-gold font-bold whitespace-nowrap">
-            Manufacturing Partners
-          </p>
-          <div className="h-[1px] flex-1 bg-brand-gold/30"></div>
+        {/* Editorial Heading */}
+        <div className="mb-16 md:mb-24 flex flex-col items-center text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center gap-4 mb-4 md:mb-6"
+          >
+            <div className="w-6 md:w-8 h-[1px] bg-brand-gold/50"></div>
+            <p className="text-brand-gold text-[9px] md:text-[10px] uppercase tracking-[0.6em] md:tracking-[0.8em] font-bold">
+              Strategic Partners
+            </p>
+            <div className="w-6 md:w-8 h-[1px] bg-brand-gold/50"></div>
+          </motion.div>
+          
+          <h3 className="font-serif text-3xl md:text-6xl text-brand-dark tracking-tight leading-tight">
+            Trusted by the industry
+            <span className="italic font-light text-brand-green"> vanguard</span>
+          </h3>
         </div>
 
-        {/* Responsive Grid: 2 cols on mobile, 3 on tablets/desktop */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-16">
+        {/* Mobile Optimized Grid: 
+            - grid-cols-2 for phones (prevents tiny, unreadable logos)
+            - md:grid-cols-3 for tablet/desktop
+            - Smaller gap on mobile (gap-8) vs desktop (gap-32)
+        */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-32 items-center justify-items-center">
           {CLIENT_LOGOS.map((logo, i) => (
             <motion.div 
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.1 }}
-              className="relative group"
+              transition={{ duration: 1.2, delay: i * 0.1 }}
+              className="w-full flex justify-center group"
             >
-              <div className="bg-white aspect-[16/9] flex items-center justify-center p-6 md:p-12 shadow-sm border border-brand-gold/5 transition-all duration-700 group-hover:shadow-premium group-hover:border-brand-gold/20 group-hover:-translate-y-2">
+              <div className="relative py-4 md:py-8 w-full flex justify-center">
                 <img 
                   src={`/logos/${logo.toLowerCase().replace(/\s+/g, '')}.png`} 
                   alt={logo}
-                  className="max-h-full max-w-full object-contain filter brightness-95 group-hover:brightness-100 transition-all duration-500"
+                  className="h-8 md:h-16 w-auto max-w-[140px] md:max-w-[180px] object-contain 
+                             saturate-[0.5] opacity-50 transition-all duration-[1s] ease-out
+                             group-hover:opacity-100 group-hover:saturate-100 group-hover:scale-105"
                 />
-              </div>
-              
-              {/* Labels only visible on hover or desktop to keep mobile clean */}
-              <div className="mt-3 text-center md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <span className="text-[8px] md:text-[9px] uppercase tracking-widest text-brand-gold font-semibold">
-                  Verified Partner
-                </span>
+                
+                {/* Subtle underline detail on hover - hidden on touch devices for cleaner look */}
+                <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-brand-gold/30 transition-all duration-700 group-hover:w-1/3" />
               </div>
             </motion.div>
           ))}

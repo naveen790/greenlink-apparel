@@ -7,8 +7,7 @@ export default function BackToTop() {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      // Show slightly earlier on mobile (300px) vs desktop (500px)
-      const threshold = window.innerWidth < 768 ? 300 : 500;
+      const threshold = 400;
       setIsVisible(window.scrollY > threshold);
     };
 
@@ -27,34 +26,35 @@ export default function BackToTop() {
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
           onClick={scrollToTop}
-          // Responsive positioning: closer to edge on mobile, more breathing room on desktop
-          className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[9999] active:scale-90 transition-transform"
+          className="fixed bottom-8 right-8 md:bottom-12 md:right-12 z-[9999] group flex flex-col items-center gap-4"
           aria-label="Back to top"
         >
-          {/* Size: 12 (48px) on mobile, 14 (56px) on desktop */}
-          <div className="relative flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-white/90 backdrop-blur-md border border-brand-gold/30 rounded-full shadow-premium group transition-all duration-500 hover:border-brand-gold">
+          {/* Vertical Label */}
+          <span className="text-[9px] uppercase tracking-[0.4em] text-[#1B2721]/40 [writing-mode:vertical-lr] transition-colors group-hover:text-[#C5A059] duration-500">
+            Top
+          </span>
+
+          {/* The Needle/Arrow Component */}
+          <div className="relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-white border border-[#1B2721]/5 shadow-lux overflow-hidden">
+            {/* Background Hover Fill */}
+            <div className="absolute inset-0 bg-[#1B2721] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
             
             <svg 
-              className="w-5 h-5 text-brand-gold transition-transform duration-500 group-hover:-translate-y-1" 
+              className="relative z-10 w-4 h-4 text-[#C5A059] transition-transform duration-500 group-hover:-translate-y-1 group-hover:text-[#F9F9F7]" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 15l7-7 7 7" />
+              <path strokeLinecap="square" strokeLinejoin="round" strokeWidth="1.5" d="M5 15l7-7 7 7" />
             </svg>
-            
-            {/* Desktop-only decorative ring (hidden on touch devices to save performance) */}
-            <div className="absolute inset-0 border border-transparent md:group-hover:border-brand-gold/20 rounded-full scale-110 opacity-0 md:group-hover:opacity-100 transition-all duration-700"></div>
+
+            {/* Micro-Interaction: Bottom line reveal */}
+            <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#C5A059] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
           </div>
-          
-          {/* Mobile indicator - small text only visible on desktop hover */}
-          <span className="hidden md:block absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-brand-slate text-white text-[9px] uppercase tracking-[0.2em] px-3 py-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-            Top
-          </span>
         </motion.button>
       )}
     </AnimatePresence>

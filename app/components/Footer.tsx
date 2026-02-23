@@ -1,81 +1,62 @@
 'use client';
-import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    // Switched from brand-slate to brand-cream to match the rest of the page
-    <footer className="bg-brand-cream py-24 px-6 border-t border-brand-gold/20">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
-          
-          {/* Brand Identity */}
-          <div className="md:col-span-2">
-            <div className="font-heading text-4xl italic mb-8 text-brand-slate">
-              Nyio <span className="text-brand-gold not-italic font-light">Corp</span>
-            </div>
-            {/* Using brand-slate with opacity so it is clear but soft */}
-            <p className="text-brand-slate/70 max-w-sm leading-relaxed font-body text-base">
-              Specialized apparel sourcing and manufacturing.
-            </p>
+    <footer className="bg-brand-cream pt-16 pb-12 md:py-24 px-6">
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
+        
+        {/* Logo & Back to Top interaction */}
+        <motion.button 
+          onClick={scrollToTop}
+          whileHover={{ y: -5 }}
+          whileTap={{ scale: 0.95 }}
+          className="mb-8 group flex flex-col items-center gap-4"
+          aria-label="Back to top"
+        >
+          <div className="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity duration-700">
+            <img 
+              src="/leaf-logo.png" 
+              alt="GreenLink Apparel" 
+              className="w-full h-full object-contain" 
+            />
           </div>
+          <span className="text-[8px] uppercase tracking-[0.4em] text-brand-gold opacity-0 group-hover:opacity-100 transition-all duration-500">
+            Back to Top
+          </span>
+        </motion.button>
 
-          {/* Navigation */}
-          <div>
-            <h4 className="text-[10px] uppercase tracking-[0.5em] font-bold text-brand-gold mb-10">
-              Navigation
-            </h4>
-            <ul className="space-y-5">
-              {['About', 'Gallery', 'Contact'].map((item) => (
-                <li key={item}>
-                  <Link 
-                    href={`#${item.toLowerCase()}`} 
-                    className="text-brand-slate/60 hover:text-brand-gold transition-colors text-sm font-body tracking-wide"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* Structural Divider for Mobile */}
+        <div className="w-12 h-[1px] bg-brand-gold/20 mb-10" />
 
-          {/* Direct Contact */}
-          <div>
-            <h4 className="text-[10px] uppercase tracking-[0.5em] font-bold text-brand-gold mb-10">
-              Inquiries
-            </h4>
-            <ul className="space-y-5 text-sm text-brand-slate/60 font-body tracking-wide">
-              <li className="hover:text-brand-gold transition-colors cursor-pointer">
-                production@nyiocorp.com
-              </li>
-              <li>Tiruppur, India</li>
-            </ul>
-          </div>
+        {/* Footer Links - Added for mobile navigation ease */}
+        <div className="flex gap-8 mb-12 lg:hidden">
+          {['About', 'Collection', 'Contact'].map((item) => (
+            <a 
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="text-[10px] uppercase tracking-widest text-brand-dark/60 font-medium"
+            >
+              {item}
+            </a>
+          ))}
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-12 border-t border-brand-gold/10 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-brand-slate/40 font-medium">
-            © {currentYear} Nyio Corp. All Rights Reserved.
-          </p>
-          
-          <div className="flex gap-10">
-            {['LinkedIn', 'Instagram', 'WhatsApp'].map((social) => (
-              <a 
-                key={social}
-                href="#" 
-                className="text-[10px] uppercase tracking-[0.3em] text-brand-slate/40 hover:text-brand-gold transition-all duration-300"
-              >
-                {social}
-              </a>
-            ))}
-          </div>
-          
-          <p className="text-[10px] uppercase tracking-[0.4em] text-brand-gold font-heading italic">
-            Quality First. Always.
+        {/* The Copyright Line: Adjusted tracking for better small-screen legibility */}
+        <div className="flex flex-col md:flex-row items-center gap-4 text-center">
+          <p className="text-[9px] md:text-[11px] uppercase tracking-[0.4em] md:tracking-[0.8em] text-brand-sage font-light opacity-60">
+            © {currentYear} GreenLink Apparel. 
+            <span className="hidden md:inline mx-2">|</span>
+            <span className="block md:inline mt-2 md:mt-0">All Rights Reserved.</span>
           </p>
         </div>
+        
       </div>
     </footer>
   );

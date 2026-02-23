@@ -1,23 +1,18 @@
-/* 1. ALL IMPORTS MUST BE AT THE ABSOLUTE TOP */
+/* 1. ALL IMPORTS */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
-
 @theme {
   /* =========================
-     PREMIUM BRAND PALETTE
+     THE "SOPHISTICATED EARTH" PALETTE
+     Lighter, more organic than "pure dark"
   ========================== */
-  --color-brand-gold: #C5A059;
-  --color-brand-cream: #F9F8F3;
-  --color-brand-slate: #1A1C1E;
-  --color-brand-accent: #E8DCC4;
-
-  /* =========================
-     SURFACE SYSTEM
-  ========================== */
-  --color-surface-light: #FFFFFF;
-  --color-surface-muted: #F3F2ED;
-
+  --color-brand-dark: #1B2721;       /* Forest Obsidian - The deep ink */
+  --color-brand-pine: #2D3A33;       /* Muted Pine for deep accents */
+  --color-brand-gold: #C5A059;       /* Muted Champagne Gold (Less "yellow" more "brass") */
+  --color-brand-sage: #4E6554;       /* Slate green for body text */
+  --color-brand-cream: #F9F9F7;      /* Warm Chalk - Premium paper feel */
+  
   /* =========================
      TYPOGRAPHY CONSTANTS
   ========================== */
@@ -25,11 +20,10 @@
   --font-body: "Inter", sans-serif;
 
   /* =========================
-     SHADOW SYSTEM
+     ELEVATED SHADOWS & BLUR
   ========================== */
-  --shadow-premium: 0 20px 50px rgba(26, 28, 30, 0.08);
-  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.04);
-  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-lux: 0 30px 60px -12px rgba(27, 39, 33, 0.15);
+  --shadow-soft: 0 10px 30px -5px rgba(27, 39, 33, 0.05);
 
   /* =========================
      ANIMATION
@@ -48,73 +42,75 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
+  /* The core reset: Chalk background, dark ink text */
   background-color: var(--color-brand-cream);
-  color: var(--color-brand-slate);
+  color: var(--color-brand-dark);
   font-family: var(--font-body);
-  @apply antialiased text-[15px] leading-relaxed;
+  @apply antialiased text-[15px] md:text-[16px] leading-[1.8] tracking-normal;
 }
 
 /* =========================
-   TYPOGRAPHY HIERARCHY
+   PREMIUM TYPOGRAPHY
 ========================= */
 
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
-  @apply tracking-tight font-serif;
+  @apply tracking-tight font-normal;
+  color: var(--color-brand-dark);
 }
 
-h1 {
-  @apply text-5xl md:text-8xl;
-}
+/* Confident, Large Scale Typography */
+h1 { @apply text-6xl md:text-[9rem] leading-[0.9] tracking-tighter; }
+h2 { @apply text-5xl md:text-7xl leading-[1.1] tracking-tight; }
+h3 { @apply text-3xl md:text-4xl italic; }
 
-h2 {
-  @apply text-4xl md:text-6xl;
-}
-
-h3 {
-  @apply text-2xl md:text-3xl;
-}
-
-/* Harmonized text color using color-mix */
 p {
-  color: color-mix(in srgb, var(--color-brand-slate), transparent 30%);
-  @apply leading-relaxed;
+  /* Muted secondary text for hierarchy */
+  color: var(--color-brand-sage);
+  @apply leading-[1.9] font-light;
 }
 
 /* =========================
-   PREMIUM UTILITIES
+   LUXURY UTILITIES
 ========================= */
 
 .btn-premium {
-  @apply px-8 py-4 rounded-full transition-all duration-500 font-medium tracking-widest text-[10px] uppercase inline-block text-center cursor-pointer;
-  background-color: var(--color-brand-slate);
-  color: white;
-  border: 1px solid transparent;
+  @apply px-12 py-5 rounded-none transition-all duration-500 font-semibold tracking-[0.4em] text-[10px] uppercase inline-block text-center cursor-pointer relative border border-transparent;
+  background-color: var(--color-brand-dark);
+  color: var(--color-brand-cream);
 }
 
 .btn-premium:hover {
-  @apply -translate-y-1;
   background-color: transparent;
-  color: var(--color-brand-slate);
-  border-color: var(--color-brand-gold);
-  box-shadow: var(--shadow-premium);
+  color: var(--color-brand-dark);
+  border-color: var(--color-brand-dark);
+  @apply -translate-y-1;
 }
 
-.card-surface {
-  background-color: var(--color-surface-light);
-  border-radius: 2px;
-  box-shadow: var(--shadow-soft);
-  @apply border border-zinc-100 transition-all duration-500 hover:shadow-medium;
+/* Card surfaces for the Light Mode Premium look */
+.surface-card {
+  background-color: #FFFFFF;
+  @apply transition-all duration-700 shadow-soft hover:shadow-lux;
+  border: 1px solid rgba(27, 39, 33, 0.03);
 }
 
-.glass-nav {
-  @apply bg-white/70 backdrop-blur-xl border-b border-brand-gold/10;
-}
-
+/* Custom Selection: Dark on Cream */
 ::selection {
   background-color: var(--color-brand-gold);
-  color: white;
+  color: #FFFFFF;
+}
+
+/* Refined Minimalist Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-brand-cream); }
+::-webkit-scrollbar-thumb { background: var(--color-brand-dark); opacity: 0.2; }
+
+/* Global Text Spacing for that "Expensive" Feel */
+.tracking-boutique {
+  letter-spacing: 0.5em;
 }
