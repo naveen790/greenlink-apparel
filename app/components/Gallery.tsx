@@ -5,8 +5,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { PRODUCTS } from '../data';
 
+interface Product {
+  id: number;
+  name: string;
+  category: string;
+  image: string;
+  details: string;
+  specs?: Record<string, string | number>; // The optional specs property
+}
+
 export default function Gallery() {
-  const [selectedProduct, setSelectedProduct] = useState<null | typeof PRODUCTS[0]>(null);
+  const [selectedProduct, setSelectedProduct] = useState<null | PRODUCT>(null);
   const [activeCategory, setActiveCategory] = useState('All');
 
   // Categories derived from data.ts
