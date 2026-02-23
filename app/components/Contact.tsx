@@ -56,7 +56,7 @@ export default function Contact() {
                 href="mailto:production@greenlinkapparel.com" 
                 className="font-serif italic text-lg md:text-xl text-brand-dark leading-tight underline decoration-brand-gold/20 hover:text-brand-green transition-colors"
               >
-                production@greenlinkapparel.com
+                inquiry@greenlinkapparel.com
               </a>
             </div>
           </div>

@@ -48,7 +48,7 @@ export default function Logos() {
                   src={`/logos/${logo.toLowerCase().replace(/\s+/g, '')}.png`} 
                   alt={logo}
                   className="h-8 md:h-16 w-auto max-w-[140px] md:max-w-[180px] object-contain 
-                             saturate-[0.5] opacity-50 transition-all duration-[1s] ease-out
+                             saturate-[0.5] opacity-85 transition-all duration-[1s] ease-out
                              group-hover:opacity-100 group-hover:saturate-100 group-hover:scale-105"
                 />
                 

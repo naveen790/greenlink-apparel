@@ -149,31 +149,33 @@ export default function Gallery() {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 30, opacity: 0 }}
-              className="bg-brand-cream text-brand-dark max-w-6xl w-full flex flex-col lg:grid lg:grid-cols-2 max-h-[95vh] lg:max-h-[85vh] overflow-hidden shadow-2xl relative"
+              /* MOBILE FIX: Changed overflow-hidden to overflow-y-auto to allow scrolling */
+              className="bg-brand-cream text-brand-dark max-w-6xl w-full flex flex-col lg:grid lg:grid-cols-2 max-h-[90vh] lg:max-h-[85vh] overflow-y-auto lg:overflow-hidden shadow-2xl relative rounded-sm"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
+              {/* Close Button: Added background for mobile visibility over images */}
               <button 
                 onClick={() => setSelectedProduct(null)}
-                className="absolute top-4 right-4 md:top-8 md:right-8 z-50 p-2 text-brand-dark/50 hover:text-brand-gold hover:rotate-90 transition-all duration-500"
+                className="absolute top-4 right-4 md:top-8 md:right-8 z-50 p-2 bg-brand-cream/80 backdrop-blur rounded-full lg:bg-transparent text-brand-dark hover:text-brand-gold hover:rotate-90 transition-all duration-500"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
 
-              {/* Modal Image Section */}
-              <div className="relative h-[30vh] lg:h-full min-h-[250px] bg-brand-linen">
+              {/* Modal Image Section: Increased mobile height to 50vh to show more of the garment */}
+              <div className="relative h-[50vh] sm:h-[60vh] lg:h-full w-full bg-brand-linen flex-shrink-0">
                 <Image 
                   src={selectedProduct.image} 
                   alt={selectedProduct.name} 
                   fill 
-                  className="object-cover" 
+                  priority
+                  className="object-cover object-center" 
                 />
               </div>
 
               {/* Modal Content Section */}
-              <div className="p-8 md:p-16 lg:p-20 flex flex-col justify-center overflow-y-auto">
+              <div className="p-8 md:p-16 lg:p-20 flex flex-col justify-center">
                  <span className="text-brand-gold text-[10px] uppercase tracking-[0.6em] font-bold mb-4 block">
                    Ref: {selectedProduct.id.toString().padStart(3, '0')}
                  </span>
@@ -187,7 +189,7 @@ export default function Gallery() {
                     {selectedProduct.details}
                  </p>
                  
-                 {/* Specifications Logic: Only shows if data exists */}
+                 {/* Specifications Logic */}
                  <div className="space-y-4 mb-12">
                     <div className="flex justify-between items-center border-b border-brand-sand/40 pb-3">
                         <span className="text-[10px] uppercase tracking-widest text-brand-gold font-bold">Category</span>
@@ -204,7 +206,7 @@ export default function Gallery() {
 
                  <button 
                   onClick={handleInquiry}
-                  className="btn-premium w-full py-4 md:py-6"
+                  className="btn-premium w-full py-4 md:py-6 mb-6 lg:mb-0"
                  >
                     Inquire this Style
                  </button>

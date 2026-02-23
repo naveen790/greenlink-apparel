@@ -133,16 +133,12 @@ export default function Navbar() {
                     /* Mobile Overlay links: Updated hover color to brand-gold */
                     className="font-serif italic text-5xl md:text-7xl text-brand-dark hover:text-brand-gold transition-colors active:scale-95 block"
                   >
-                    {link.name.toLowerCase()}.
+                    {link.name}
                   </Link>
                 </motion.div>
               ))}
             </div>
             
-            <div className="absolute bottom-12 flex flex-col items-center gap-6">
-              <div className="h-[1px] w-12 bg-brand-gold/30" />
-              <p className="text-[10px] uppercase tracking-[0.8em] text-brand-gold font-bold">New York • Global</p>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,33 +1,28 @@
-/* 1. ALL IMPORTS */
+/* ==========================================================
+   1. IMPORTS & THEME SETUP
+   ========================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  /* =========================
-     THE "SOPHISTICATED EARTH" PALETTE
-     Lighter, more organic than "pure dark"
-  ========================== */
-  --color-brand-dark: #1B2721;       /* Forest Obsidian - The deep ink */
-  --color-brand-pine: #2D3A33;       /* Muted Pine for deep accents */
-  --color-brand-gold: #C5A059;       /* Muted Champagne Gold (Less "yellow" more "brass") */
-  --color-brand-sage: #4E6554;       /* Slate green for body text */
-  --color-brand-cream: #F9F9F7;      /* Warm Chalk - Premium paper feel */
+  /* COLORS: Sophisticated Earth Palette */
+  --color-brand-dark: #1B2721;       /* Forest Obsidian */
+  --color-brand-pine: #2D3A33;       /* Muted Pine */
+  --color-brand-gold: #C5A059;       /* Muted Champagne Gold */
+  --color-brand-sage: #4E6554;       /* Slate Green */
+  --color-brand-cream: #F9F9F7;      /* Warm Chalk */
+  --color-brand-linen: #F0EEE9;      /* Background for image placeholders */
+  --color-brand-sand: #D9D4CC;       /* Subtle dividers */
   
-  /* =========================
-     TYPOGRAPHY CONSTANTS
-  ========================== */
+  /* TYPOGRAPHY */
   --font-heading: "Playfair Display", serif;
   --font-body: "Inter", sans-serif;
 
-  /* =========================
-     ELEVATED SHADOWS & BLUR
-  ========================== */
+  /* SHADOWS */
   --shadow-lux: 0 30px 60px -12px rgba(27, 39, 33, 0.15);
   --shadow-soft: 0 10px 30px -5px rgba(27, 39, 33, 0.05);
 
-  /* =========================
-     ANIMATION
-  ========================== */
+  /* ANIMATIONS */
   --animate-infinite-scroll: infinite-scroll 40s linear infinite;
 
   @keyframes infinite-scroll {
@@ -36,27 +31,37 @@
   }
 }
 
-/* =========================
-   GLOBAL BASE STYLING
-========================= */
+/* ==========================================================
+   2. GLOBAL BASE STYLING
+   ========================================================== */
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  /* The core reset: Chalk background, dark ink text */
   background-color: var(--color-brand-cream);
   color: var(--color-brand-dark);
   font-family: var(--font-body);
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
   @apply antialiased text-[15px] md:text-[16px] leading-[1.8] tracking-normal;
 }
 
-/* =========================
-   PREMIUM TYPOGRAPHY
-========================= */
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ==========================================================
+   3. PREMIUM TYPOGRAPHY
+   ========================================================== */
 
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
@@ -64,21 +69,21 @@ h1, h2, h3, h4 {
   color: var(--color-brand-dark);
 }
 
-/* Confident, Large Scale Typography */
+/* Scale System */
 h1 { @apply text-6xl md:text-[9rem] leading-[0.9] tracking-tighter; }
 h2 { @apply text-5xl md:text-7xl leading-[1.1] tracking-tight; }
 h3 { @apply text-3xl md:text-4xl italic; }
 
 p {
-  /* Muted secondary text for hierarchy */
   color: var(--color-brand-sage);
   @apply leading-[1.9] font-light;
 }
 
-/* =========================
-   LUXURY UTILITIES
-========================= */
+/* ==========================================================
+   4. LUXURY UTILITIES & COMPONENTS
+   ========================================================== */
 
+/* Main Call to Action */
 .btn-premium {
   @apply px-12 py-5 rounded-none transition-all duration-500 font-semibold tracking-[0.4em] text-[10px] uppercase inline-block text-center cursor-pointer relative border border-transparent;
   background-color: var(--color-brand-dark);
@@ -92,25 +97,52 @@ p {
   @apply -translate-y-1;
 }
 
-/* Card surfaces for the Light Mode Premium look */
+/* Image Card Surface */
 .surface-card {
   background-color: #FFFFFF;
   @apply transition-all duration-700 shadow-soft hover:shadow-lux;
   border: 1px solid rgba(27, 39, 33, 0.03);
 }
 
-/* Custom Selection: Dark on Cream */
+/* Expensive letter spacing */
+.tracking-boutique {
+  letter-spacing: 0.5em;
+}
+
+/* Custom Text Selection */
 ::selection {
   background-color: var(--color-brand-gold);
   color: #FFFFFF;
 }
 
-/* Refined Minimalist Scrollbar */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--color-brand-cream); }
-::-webkit-scrollbar-thumb { background: var(--color-brand-dark); opacity: 0.2; }
+/* ==========================================================
+   5. BROWSER SPECIFIC FIXES (Scrollbars)
+   ========================================================== */
 
-/* Global Text Spacing for that "Expensive" Feel */
-.tracking-boutique {
-  letter-spacing: 0.5em;
+/* Main Page Scrollbar */
+::-webkit-scrollbar { 
+  width: 5px; 
+}
+::-webkit-scrollbar-track { 
+  background: var(--color-brand-cream); 
+}
+::-webkit-scrollbar-thumb { 
+  background: var(--color-brand-dark); 
+  border-radius: 10px;
+}
+
+/* No Scrollbar Utility (For swipable gallery categories) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* ==========================================================
+   6. CUSTOM TEXTURE (Optional Boutique Detail)
+   ========================================================== */
+.surface-fiber {
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
 }
