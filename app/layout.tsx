@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
   // Open Graph
   openGraph: {
-    title: "Greenlink Apparel | Global Reach. Domestic Ease.",
+    title: "Greenlink Apparel | Art of Apparel",
     description: "Architecting the future of global fashion through New York-led strategy and transparent international supply chains.",
     url: "https://greenlinkapparel.com",
     siteName: "Greenlink",
