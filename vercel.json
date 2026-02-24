@@ -1,0 +1,15 @@
+{
+  "headers": [
+    {
+      "source": "/api/send",
+      "headers": [
+        {
+          "key": "x-vercel-id",
+          "value": "rate-limit-inquiries"
+        }
+      ]
+    }
+  ],
+  "rewrites": [],
+  "redirects": []
+}
