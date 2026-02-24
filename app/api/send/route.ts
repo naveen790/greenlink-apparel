@@ -62,17 +62,18 @@ export async function POST(request: Request) {
                     Dear ${name},
                     </p>
                     <p style="font-size: 16px; line-height: 1.6; margin-bottom: 25px;">
-                    We have successfully received your inquiry regarding ${message}. 
+                    We have successfully received your inquiry.
+                     <div style="border-left: 3px solid #c5a059; padding-left: 20px; margin: 30px 0;">
+                    <p style="font-size: 16px; color: #555; font-style: italic;">
+                        ${message}
+                    </p>
+                    </div> 
                     </p>
                     <p style="font-size: 16px; line-height: 1.6; margin-bottom: 25px;">
                     Our sourcing team is currently reviewing your details. We will reach out to you shortly to discuss the next steps and technical specifications.
                     </p>
                     
-                    <div style="border-left: 3px solid #c5a059; padding-left: 20px; margin: 30px 0;">
-                    <p style="font-size: 14px; color: #555; font-style: italic;">
-                        Connecting world-class design with ethical, high-volume manufacturing.
-                    </p>
-                    </div>
+                   
                 </td>
                 </tr>
 
