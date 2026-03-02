@@ -30,11 +30,13 @@ const certifications = [
 
 export default function About() {
   return (
-    <section id="about" className="bg-brand-cream pt-10 md:pt-20 pb-20 md:pb-48 px-6">
+    <section id="about" className="bg-brand-cream pt-10 md:pt-20 pb-0 px-6">
       <div className="max-w-7xl mx-auto">
         
+        {/* SECTION 1: OUR PHILOSOPHY */}
+        <div>
         {/* HERO SECTION */}
-        <header className="mb-12 md:mb-24">
+        <header className="mb-10 md:mb-12">
           <span className="text-brand-gold text-[10px] uppercase tracking-[0.6em] font-bold block mb-4 md:mb-6">
             Our Philosophy
           </span>
@@ -44,7 +46,7 @@ export default function About() {
         </header>
 
         {/* NARRATIVE SECTION */}
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-24 mb-32 md:mb-48"> 
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-24"> 
           <div className="lg:col-span-5 order-1 lg:order-2">
             <motion.div 
               initial={{ opacity: 0, scale: 0.98 }}
@@ -77,10 +79,14 @@ export default function About() {
             </motion.div> 
           </div> 
         </div>
+        <div className="mt-12 md:mt-20 mb-12 md:mb-20 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-sand/40 to-transparent" />
+        </div>
 
+        {/* SECTION 2: PRODUCTION SCOPE */}
+        <div>
         {/* MANUFACTURING CAPABILITIES GRID */}
-        <div className="mb-32 md:mb-48">
-          <div className="mb-16">
+        <div>
+          <div className="mb-10 md:mb-12">
             <span className="text-brand-gold text-[10px] uppercase tracking-[0.4em] font-bold block mb-4">Production Scope</span>
             <h4 className="font-serif italic text-3xl md:text-5xl text-brand-dark">Manufacturing Portfolio</h4>
           </div>
@@ -101,15 +107,19 @@ export default function About() {
             ))}
           </div>
         </div>
+        <div className="mt-12 md:mt-20 mb-12 md:mb-20 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-sand/40 to-transparent" />
+        </div>
 
+        {/* SECTION 3: COMMITMENT */}
+        <div>
         {/* PROMISE SECTION */}
-        <div className="mb-12 border-t border-brand-sand/40 pt-20">
+        <div className="mb-10 md:mb-12">
             <span className="text-brand-gold text-[10px] uppercase tracking-[0.6em] font-bold block mb-4">Commitment</span>
             <h4 className="font-serif italic text-3xl md:text-5xl text-brand-dark">Our Promise</h4>
         </div>
 
         {/* PILLARS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 pb-32">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
           {sustainabilityPillars.map((pillar, i) => (
             <motion.div key={i} transition={{ delay: i * 0.1 }} className="flex flex-col group">
               <span className="text-brand-gold text-[9px] uppercase tracking-[0.4em] font-black mb-4">{pillar.subtitle}</span>
@@ -118,12 +128,34 @@ export default function About() {
             </motion.div>
           ))}
         </div>
+        </div>
+        <div className="mt-12 md:mt-20 mb-12 md:mb-20 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-sand/40 to-transparent" />
+        </div>
 
+        {/* SECTION 4: COMPLIANCE & CERTIFICATIONS */}
+        <div>
         {/* CERTIFICATIONS */}
-        <div className="border-t border-brand-sand/40 pt-16">
-          <span className="text-brand-gold text-[10px] uppercase tracking-[0.4em] font-bold block mb-12 text-center">
-            Compliance & Certifications
-          </span>
+        <div>
+        {/* Editorial Heading */}
+        <div className="mb-10 md:mb-12 flex flex-col items-center text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center gap-4 mb-4 md:mb-6"
+          >
+            <div className="w-8 md:w-12 h-[1px] bg-brand-gold/40"></div>
+            <p className="text-brand-gold text-[10px] uppercase tracking-[0.8em] font-bold">
+              Compliance & Certifications
+            </p>
+            <div className="w-8 md:w-12 h-[1px] bg-brand-gold/40"></div>
+          </motion.div>
+          
+          <h3 className="font-serif text-4xl md:text-7xl text-brand-dark tracking-tighter leading-tight">
+            Trusted Quality Assured by
+            <span className="italic font-light text-brand-gold/80"> Global Certifications</span>
+          </h3>
+        </div>
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24">
             {certifications.map((cert) => (
               <motion.div 
@@ -140,8 +172,9 @@ export default function About() {
             ))}
           </div>
         </div>
+        <div className="mt-12 md:mt-20 mb-12 md:mb-20 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-sand/40 to-transparent" />
+        </div>
 
-      </div>
     </section>
   );
 }
