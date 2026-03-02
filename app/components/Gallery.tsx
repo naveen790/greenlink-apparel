@@ -63,11 +63,11 @@ export default function Gallery() {
   };
 
   return (
-    <section id="gallery" className="bg-brand-cream py-16 md:py-24 px-6 overflow-hidden">
+    <section id="gallery" className="bg-brand-cream pt-0 pb-0 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* Header & Filter System */}
-        <div className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 pb-8 md:pb-12 border-b border-brand-sand/20">
+        <div className="mb-10 md:mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 pb-4 md:pb-6 border-b border-brand-sand/20">
           <div className="max-w-xl">
             <motion.span 
               initial={{ opacity: 0, x: -10 }}
@@ -172,7 +172,7 @@ export default function Gallery() {
               {/* Modal Content Section - FIX 4: Scrollable content area */}
               <div className="p-8 md:p-12 lg:p-16 flex flex-col overflow-y-auto">
                  <span className="text-brand-gold text-[9px] uppercase tracking-[0.6em] font-bold mb-4 block">
-                   Technical Archive
+                   {selectedProduct.category}
                  </span>
                  <h2 className="font-serif italic text-3xl md:text-5xl mb-6 text-brand-dark">
                    {selectedProduct.name}
