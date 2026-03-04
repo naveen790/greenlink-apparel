@@ -179,9 +179,9 @@ export default function Gallery() {
                  <span className="text-brand-gold text-[9px] uppercase tracking-[0.6em] font-bold mb-4 block">
                    {selectedProduct.category}
                  </span>
-                 {/* <h2 className="font-serif italic text-3xl md:text-5xl mb-6 text-brand-dark">
+                 <h2 className="font-serif italic text-3xl md:text-5xl mb-6 text-brand-dark">
                    {selectedProduct.name}
-                 </h2> */}
+                 </h2>
                  
                  <p className="text-brand-sage font-light mb-8 text-base leading-relaxed italic">
                     {selectedProduct.details}

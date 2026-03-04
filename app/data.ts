@@ -47,38 +47,105 @@ interface PRODUCT {
 }
 
 export const PRODUCTS: PRODUCT[] = [
+
+  /* --- WOMEN'S COLLECTION --- */
+  {
+    id: "SAN005",
+    name: "Luxe Cherry PJ Set",
+    category: "Women",
+    image: women005,
+    details: "Breathable 180 GSM organic cotton jersey with eco-friendly non-PVC chest print.",
+    specs: { Fabric: "100% Organic Cotton Single Jersey 180 GSM", Color: "Cherry Pink" },
+  },
+  {
+    id: "SAN006",
+    name: "Floral Lounge Set",
+    category: "Women",
+    image: women006,
+    details: "Premium elastane-blended jersey with sophisticated discharge print.",
+    specs: { Fabric: "95% Cotton 5% Elasthane 180 GSM", Color: "Mocca Brown" },
+  },
+  {
+    id: "SAN007",
+    name: "Classic Shorts PJ",
+    category: "Women",
+    image: women007,
+    details: "Lightweight cotton jersey set featuring elegant tailored sleeve detailing and pigment print.",
+    specs: { Fabric: "100% Cotton Single Jersey 180 GSM", Color: "Oatmeal Cream" },
+  },
+  {
+    id: "SAN008",
+    name: "Graphic Racerback Tank",
+    category: "Women",
+    image: women008,
+    details: "Structured 200 GSM cotton jersey with high-definition discharge print.",
+    specs: { Fabric: "100% Cotton Single Jersey 200 GSM", Color: "Vintage Blue" },
+  },
+  {
+    id: "SAN009",
+    name: "Terry Hoodie & Short Set",
+    category: "Women",
+    image: women009,
+    details: "Performance viscose-blend French terry with a plush texture.",
+    specs: { Fabric: "62% Cotton 33% Viscose 5% Elasthane 240 GSM", Color: "Dusty Pink & Grey" },
+  },
+  {
+    id: "SAN010",
+    name: "Embroided Hoodies Set",
+    category: "Women",
+    image: women010,
+    details: "Hoodie set with detailed embroidery, with a structured and soft silhouette.",
+    specs: { Fabric: "62% Cotton 33% Polyester 5% Elasthane 240 GSM", Color: "Olive Green" },
+  },
+  {
+    id: "SAN011",
+    name: "Relaxed Terry Set",
+    category: "Women",
+    image: women011,
+    details: "French terry (240 GSM) designed for comfort.",
+    specs: { Fabric: "62% Cotton 33% Viscose 5% Elasthane 240 GSM", Color: "Sage Green" },
+  },
+  {
+    id: "SAN012",
+    name: "Embroided Fleece Tee",
+    category: "Women",
+    image: women012,
+    details: "Brushed poly-cotton fleece (240 GSM) with elastane and elobaorate embrodiery.",
+    specs: { Fabric: "62% Cotton 33% Polyester 5% Elasthane 240 GSM", Color: "Almond" },
+  },
+
   /* --- MEN'S COLLECTION --- */
   {
     id: "SAN001",
-    name: "Orange Essential Tee",
+    name: "Mens Graphic Tee",
     category: "Men",
     image: mens001,
-    details: "High-density 180 GSM 100% organic cotton single jersey. High quality Chest Print",
+    details: "Pure organic cotton jersey with a premium chest print finish.",
     specs: { Fabric: "100% Organic Cotton 180 GSM", Color: "Orange" },
   },
   {
     id: "SAN002",
-    name: "White Collar",
+    name: "Premium Pique Polo",
     category: "Men",
     image: mens002,
-    details: "Premium 100% cotton pique finish for a luxury feel.",
-    specs: { Fabric: "100% Cotton Pique 240 GSM", Color: "White" },
+    details: "Durable cotton pique with a luxury hand-feel, ideal for corporate or refined casual wear.",
+    specs: { Fabric: "100% Cotton Pique 240 GSM", Color: "Optic White" },
   },
   {
     id: "SAN003",
-    name: "Sage Mid-Weight Jersey",
+    name: "Heavy French Terry Tee",
     category: "Men",
     image: mens003,
-    details: "Premium Heavy Weight 100% cotton french terry(300 GSM).",
+    details: " Heavyweight French terry for a structured, boxy urban aesthetic.",
     specs: { Fabric: "100% Cotton French Terry 300 GSM", Color: "Blue" },
   },
   {
     id: "SAN004",
-    name: "Signature Structured Hoodie",
+    name: "Architectural Fleece Hoodie",
     category: "Men",
     image: mens004,
-    details: "280 GSM Cotton Fleece. Features hidden seams and a double-layered hood for a sharp architectural silhouette.",
-    specs: { Fabric: "100% Cotton Fleece 280 GSM", Color: "Green" },
+    details: "280 GSM cotton fleece with structured hood.",
+    specs: { Fabric: "100% Cotton Fleece 280 GSM", Color: "Forest Green" },
   },
 
   // {
@@ -98,131 +165,65 @@ export const PRODUCTS: PRODUCT[] = [
   //   specs: { Fabric: "Heavyweight Jersey", Color: "Emerald Wash" },
   // },
 
-  /* --- WOMEN'S COLLECTION --- */
-  {
-    id: "SAN005",
-    name: "Women Pajamas",
-    category: "Women",
-    image: women005,
-    details: "100% organic cotton single jersey 180 gsm. Non PVC print",
-    specs: { Fabric: "100% Organic Cotton 180 GSM", Color: "Cherry Pink" },
-  },
-  {
-    id: "SAN006",
-    name: "Women Printed Pajamas",
-    category: "Women",
-    image: women006,
-    details: "95% cotton 5% elasthane 180 gsm and discharge print for a sophisticated aesthetic.",
-    specs: { Fabric: "95% Cotton 5% Elasthane 180 GSM", Color: "Brown" },
-  },
-  {
-    id: "SAN007",
-    name: "Womens Short Pajamas",
-    category: "Women",
-    image: women007,
-    details: "100 % cotton jersey with elegant tailored sleeve detailing.",
-    specs: { Fabric: "100% Cotton Single Jersey 180 GSM", Color: "Cream" },
-  },
-  {
-    id: "SAN008",
-    name: "Tank tops",
-    category: "Women",
-    image: women008,
-    details: "100% cotton single jersey 200 gsm with discharge print",
-    specs: { Fabric: "100% Cotton Single Jersey 200 GSM", Color: "Blue" },
-  },
-  {
-    id: "SAN009",
-    name: "Hoodie and shorts",
-    category: "Women",
-    image: women009,
-    details: "62% cotton 33% viscose 5% elasthane french terry 240 gsm. Premium Hoodie with Shorts",
-    specs: { Fabric: "62% Cotton 33% Viscose 5% Elasthane 240 GSM", Color: "Pink and Grey" },
-  },
-  // {
-  //   id: "SAN010",
-  //   name: "Premium Coordinates Set",
-  //   category: "Women",
-  //   image: women010,
-  //   details: "62% cotton 33% polyester 5% elasthane fleece 240 gsm with Embroidery",
-  //   specs: { Fabric: "62% cotton 33% polyester 5% elasthane fleece 240 gsm", Color: "Olive Green" },
-  // },
-  {
-    id: "SAN011",
-    name: "Womens Causal Set",
-    category: "Women",
-    image: women011,
-    details: "62% cotton 33% viscose 5% elasthane French terry 240 gsm.",
-    specs: { Fabric: "62% Cotton 33% Viscose 5% Elasthane 240 GSM", Color: "Light Green" },
-  },
-  {
-    id: "SAN012",
-    name: "Modern Dolman Tee",
-    category: "Women",
-    image: women012,
-    details: "62% cotton 33% polyester 5% elasthane fleece 240 gsm",
-    specs: { Fabric: "62% Cotton 33% Polyester 5% Elasthane 240 GSM", Color: "Cream" },
-  },
-
   /* --- KIDS COLLECTION --- */
   {
     id: "SAN013",
-    name: "Organic Junior Slub",
+    name: "Junior Slub Tee",
     category: "Kids",
     image: kids013,
-    details: "GOTS certified 100% organic cotton with non-toxic dyes, ensuring safety and extreme softness. Print like spray effect. ",
-    specs: { Fabric: "100% Organic Cotton Slub 160 GSM", Color: "Sunlight Gold" },
+    details: "GOTS certified slub jersey with a unique spray-effect print, ensuring non-toxic safety for children.",
+    specs: { Fabric: "100% Organic Cotton Slub 160 GSM", Color: "Light Pink" },
   },
   {
     id: "SAN014",
-    name: "Kids Rompers",
+    name: "Organic Romper",
     category: "Kids",
     image: kids014,
-    details: "Safe, drawstring-free design with a durable knit that withstands frequent laundering.",
+    details: "Ultra-soft 160 GSM organic cotton romper, tailored for comfort.",
     specs: { Fabric: "100% Organic Cotton 160 GSM", Color: "Grey Marl" },
   },
   {
     id: "SAN015",
-    name: "Kids Play-Day Pajamas",
+    name: "Play-Day 3D Pocket Set",
     category: "Kids",
     image: kids015,
-    details: "Cotton Polyster Jersey. 100% Cotton Pant. Applique 3d pocket+ ears+ pocket",
+    details: "Feature-rich set with 3D applique ears and pockets on durable 160 GSM poly-cotton jersey.",
     specs: { 
       "Top Fabric": "98% Cotton 2% Poly 160 GSM", 
       "Pant Fabric": "100% Cotton Jersey 160 GSM", 
-      Color: "Grey" 
+      Color: "Soft Grey" 
     },
   },
   {
     id: "SAN016",
-    name: "Kids Hoodie Set",
+    name: "Denim-Look Fleece Set",
     category: "Kids",
     image: kids016,
-    details: "Pant gross loop knit(looks like denim)",
+    details: "Gross loop knit pant with a denim look paired with a 220 GSM fleece top.",
     specs: { 
       "Top Fabric": "98% Cotton 2% Poly Fleece 220 GSM",
       "Pant Fabric": "95% Cotton 5% Elastane 180 GSM", 
-      Color: "Half White" 
+      Color: "Off White" 
     },
   },
   {
     id: "SAN017",
-    name: "Graphic Print Tank Top",
+    name: "Mesh Graphic Tank Tee",
     category: "Kids",
     image: kids017,
-    details: "Applique mesh fabric.",
+    details: "Hybrid design featuring a breathable polyester mesh front and soft cotton jersey back.",
     specs: { 
       "Front Fabric": "100% Polyester Mesh", 
       "Back Fabric": "100% Cotton Jersey 160 GSM", 
-      Color: "Pink & White" 
+      Color: "Candy Pink & White" 
     },
   },
   {
     id: "SAN018",
-    name: "Peppa Pig Pajamas",
+    name: "Peppa Pig Pajama",
     category: "Kids",
     image: kids018,
-    details: "Cross loop jersey. Applique embroidery + gliter print + mesh applique",
+    details: "Multi-technique set featuring denim look glitter prints, mesh applique, and cross-loop jersey for high texture.",
     specs: { 
       "Top Fabric": "100% Cotton Jersey 160 GSM", 
       "Bottom Fabric": "95% Cotton 5% Elastane", 
@@ -231,22 +232,22 @@ export const PRODUCTS: PRODUCT[] = [
   },
   {
     id: "SAN019",
-    name: "Kids Striped Sequin Tshirt",
+    name: "Sequin Stripe Tee",
     category: "Kids",
     image: kids019,
-    details: "Printed stripes + sequins",
-    specs: { Fabric: "100% Cotton Jersey 200 GSM", Color: "White & Navy" },
+    details: "Durable 200 GSM cotton jersey with reinforced sequin application and classic stripes.",
+    specs: { Fabric: "100% Cotton Jersey 200 GSM", Color: "Navy & White Stripe" },
   },
   {
     id: "SAN020",
-    name: "Kids Seasonal Romper",
+    name: "Melange Printed PJ",
     category: "Kids",
     image: kids020,
-    details: "Special melange. AOP + CMYK print",
+    details: "Special melange jersey with All-Over-Print (AOP) and precision CMYK photo print.",
     specs: { 
       "Top Fabric": "56% Cotton 44% Poly 180 GSM", 
       "Bottom Fabric": "100% Cotton 160 GSM", 
-      Color: "Light Pink" 
+      Color: "Blush Pink" 
     },
   },
 ];
