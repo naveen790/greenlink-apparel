@@ -3,33 +3,35 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
-  // Primary SEO - Repositioned as a US-based Global Agency
-  title: 'Greenlink Apparel| Global Apparel Sourcing & Supply Chain Management',
-  description: 'Greenlink is a premier sourcing agency connecting global brands with world-class manufacturing clusters. Delivering ethical, retail-ready apparel to the USA, Europe, and Australia.',
+  title: 'Greenlink Apparel | Direct B2B Apparel Sourcing & Production',
+  description: 'Connect with world-class, retail-ready garment manufacturing in South Asia and beyond. Greenlink Apparel is a NY-based agency providing ethical B2B supply chain solutions for International brands.',
+  
   keywords: [
-    'Greenlink Apparel', 
-    'New York Apparel Agency', 
-    'Global Garment Manufacturing', 
-    'Sustainable Supply Chain USA', 
-    'Premium Clothing Sourcing Europe', 
-    'Ethical Fashion Production Australia',
-    'Wholesale Apparel Logistics'
+    "Direct factory clothing sourcing India to USA",
+    "Private label knitwear manufacturer India",
+    "Ethical retail-ready apparel production",
+    "US brand garment export manufacturing",
+    "Sustainable B2B clothing supplier India",
+    "direct apparel manufacturer India",
+    "apparel sourcing agency New York",
+    "Tirupur garment export manufacturing",
+    "India to US apparel supply chain",
   ],
 
-  // Open Graph
   openGraph: {
-    title: "Greenlink Apparel | Art of Apparel",
-    description: "Architecting the future of global fashion through New York-led strategy and transparent international supply chains.",
+    title: "Greenlink Apparel | Direct B2B Apparel Sourcing & Production",
+    description: "The trusted New York agency bridging American brands to ethical, high-volume apparel manufacturing in India. Streamline your production from design to delivery.",
     url: "https://greenlinkapparel.com",
-    siteName: "Greenlink",
+    siteName: "Greenlink Apparel",
     images: [
       {
-        url: "/og-image.jpg", 
+        url: "https://greenlinkapparel.com/og-image.jpg", 
         width: 1200,
         height: 630,
-        alt: "Greenlink Apparel- Global Sourcing Portfolio",
+        alt: "Greenlink Apparel - Global Sourcing Portfolio",
       },
     ],
     locale: "en_US",
@@ -42,12 +44,11 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
 
-  // Twitter (X)
   twitter: {
     card: "summary_large_image",
-    title: "Greenlink Apparel| Global Apparel Sourcing",
+    title: "Greenlink Apparel | Global Apparel Sourcing",
     description: "US-based strategic sourcing for global retail brands. Premium manufacturing with international logistics.",
-    images: ["/og-image.jpg"],
+    images: ["https://greenlinkapparel.com/og-image.jpg"],
   },
 };
 
@@ -76,6 +77,7 @@ export default function RootLayout({
         <Footer />
         <BackToTop />
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID as string} />
     </html>
   );
 }

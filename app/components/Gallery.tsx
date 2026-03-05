@@ -21,6 +21,7 @@ interface PRODUCT {
 export default function Gallery() {
   const [selectedProduct, setSelectedProduct] = useState<null | PRODUCT>(null);
   const [activeCategory, setActiveCategory] = useState('All');
+  const [showFullImage, setShowFullImage] = useState(false);
 
   useEffect(() => {
     if (selectedProduct) {
@@ -164,18 +165,19 @@ export default function Gallery() {
               {/* SCROLLABLE IMAGE SECTION */}
               <div className="relative h-[50vh] lg:h-full w-full bg-brand-linen overflow-y-auto no-scrollbar border-r border-brand-sand/20">
                 <div className="relative w-full min-h-full">
-                   <Image 
+                  <Image 
                     src={selectedProduct.image} 
                     alt={selectedProduct.name} 
                     width={1200} 
                     height={1600}
-                    className="w-full h-auto object-contain block" 
-                   />
+                    className="w-full h-auto object-cover block cursor-zoom-in" 
+                    onClick={() => setShowFullImage(true)}
+                  />
                 </div>
               </div>
 
               {/* SCROLLABLE CONTENT SECTION */}
-              <div className="p-8 md:p-12 lg:p-16 flex flex-col overflow-y-auto">
+              <div className="p-8 md:p-12 lg:p-16 flex flex-col h-full max-h-[90vh] overflow-y-auto">
                  <span className="text-brand-gold text-[9px] uppercase tracking-[0.6em] font-bold mb-4 block">
                    {selectedProduct.category}
                  </span>
@@ -187,7 +189,7 @@ export default function Gallery() {
                     {selectedProduct.details}
                  </p>
                  
-                 <div className="space-y-4 mb-10 flex-grow">
+                 <div className="space-y-4 mb-10">
                     <div className="flex justify-between items-center border-b border-brand-sand/40 pb-2">
                         <span className="text-[10px] uppercase tracking-widest text-brand-gold font-bold">Category</span>
                         <span className="text-xs font-medium uppercase tracking-tighter">{selectedProduct.category}</span>
@@ -203,7 +205,7 @@ export default function Gallery() {
 
                  <button 
                   onClick={handleInquiry}
-                  className="btn-premium w-full py-5 shrink-0 mt-auto"
+                  className="btn-premium w-full py-5 shrink-0 sticky bottom-0 bg-brand-cream border-t border-brand-sand/20"
                  >
                     Inquire this Style
                  </button>
@@ -212,6 +214,23 @@ export default function Gallery() {
           </motion.div>
         )}
       </AnimatePresence>
+      {/* Fullscreen Image Modal for Mobile */}
+      {showFullImage && (
+        <div 
+          className="fixed inset-0 z-[20000] bg-black/90 flex items-center justify-center"
+          onClick={() => setShowFullImage(false)}
+        >
+          {selectedProduct && (
+            <Image 
+              src={selectedProduct.image}
+              alt={selectedProduct?.name || ''}
+              width={1200}
+              height={1600}
+              className="max-w-full max-h-full object-contain" 
+            />
+          )}
+        </div>
+      )}
     </section>
   );
 }
